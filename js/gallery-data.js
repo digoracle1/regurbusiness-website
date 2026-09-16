@@ -3,14 +3,14 @@
    --------------------------------------------------------------------------
    HOW TO ADD A NEW ITEM
    1. Save the image into the matching folder, e.g.
-        images/gallery/company/acme-cac-2026-09.webp
+        images/gallery/company/cac-2026-09.webp
       (Recommended: .webp or .jpg, ~1200px on the long edge, under 300 KB.
        Blur/redact RC/BN numbers, addresses, signatures and ID details
        unless the client has given written permission to show them.)
    2. Add an object to the list below (newest first):
         {
           category: "company",
-          src: "images/gallery/company/acme-cac-2026-09.webp",
+          src: "images/gallery/company/cac-2026-09.webp",
           alt: "CAC Certificate of Incorporation for a Lagos-based logistics company, details redacted",
           caption: "Limited company — Lagos · Sep 2026"
         }
