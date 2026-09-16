@@ -39,6 +39,116 @@
   nav.addEventListener("click", function (e) { if (e.target.closest("a")) setNav(false); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && nav.classList.contains("is-open")) { setNav(false); toggle.focus(); } });
 
+  /* ---------- Cookie consent banner ----------
+     Only shown when js/config.js has at least one tracking ID. Tags load
+     after "Accept" and never after "Decline". The choice is stored in the
+     visitor's browser only. -------------------------------------------- */
+  var CONSENT_KEY = "ryb-cookie-consent";
+  var tracking = cfg.tracking || {};
+  var hasTags = !!(tracking.metaPixelId || tracking.tiktokPixelId || tracking.ga4Id);
+
+  function readConsent() {
+    try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
+  }
+  function saveConsent(value) {
+    try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
+  }
+
+  function loadTags() {
+    if (tracking.metaPixelId) {
+      /* Meta (Facebook/Instagram) Pixel */
+      !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+        if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = [];
+        t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+      }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      window.fbq("init", tracking.metaPixelId);
+      window.fbq("track", "PageView");
+    }
+    if (tracking.tiktokPixelId) {
+      /* TikTok Pixel */
+      !function (w, d, t) {
+        w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || [];
+        ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie"];
+        ttq.setAndDefer = function (obj, m) { obj[m] = function () { obj.push([m].concat(Array.prototype.slice.call(arguments, 0))); }; };
+        for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+        ttq.load = function (e) {
+          var u = "https://analytics.tiktok.com/i18n/pixel/events.js";
+          ttq._i = ttq._i || {}; ttq._i[e] = []; ttq._i[e]._u = u; ttq._t = ttq._t || {}; ttq._t[e] = +new Date();
+          ttq._o = ttq._o || {}; ttq._o[e] = {};
+          var s = d.createElement("script"); s.type = "text/javascript"; s.async = !0; s.src = u + "?sdkid=" + e + "&lib=" + t;
+          var f = d.getElementsByTagName("script")[0]; f.parentNode.insertBefore(s, f);
+        };
+        ttq.load(tracking.tiktokPixelId); ttq.page();
+      }(window, document, "ttq");
+    }
+    if (tracking.ga4Id) {
+      /* Google Analytics 4 */
+      var g = document.createElement("script");
+      g.async = true;
+      g.src = "https://www.googletagmanager.com/gtag/js?id=" + tracking.ga4Id;
+      document.head.appendChild(g);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag("js", new Date());
+      window.gtag("config", tracking.ga4Id, { anonymize_ip: true });
+    }
+  }
+
+  function buildBanner() {
+    var wrap = document.createElement("div");
+    wrap.className = "cookie-banner";
+    wrap.setAttribute("role", "dialog");
+    wrap.setAttribute("aria-live", "polite");
+    wrap.setAttribute("aria-label", "Cookie choices");
+    wrap.innerHTML =
+      '<div class="cookie-banner__text">' +
+        '<strong>We&rsquo;d like to use cookies</strong>' +
+        '<p>We use cookies to measure how our ads perform, so we can reach more business owners who need us. ' +
+        'They are not needed for this site to work \u2014 choose &ldquo;Decline&rdquo; and nothing is loaded. ' +
+        'See our <a href="privacy.html#what-we-collect">Privacy Policy</a>.</p>' +
+      '</div>' +
+      '<div class="cookie-banner__actions">' +
+        '<button type="button" class="btn btn--brand btn--sm" data-consent="accepted">Accept</button>' +
+        '<button type="button" class="btn btn--ghost btn--sm" data-consent="declined">Decline</button>' +
+      '</div>';
+    document.body.appendChild(wrap);
+    requestAnimationFrame(function () { wrap.classList.add("is-in"); });
+    wrap.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-consent]");
+      if (!b) return;
+      var choice = b.getAttribute("data-consent");
+      saveConsent(choice);
+      wrap.remove();
+      document.body.classList.remove("has-cookie-banner");
+      if (choice === "accepted") loadTags();
+    });
+    document.body.classList.add("has-cookie-banner");
+  }
+
+  window.RYB_COOKIES = {
+    status: function () { return readConsent() || "unset"; },
+    reset: function () {                       // "Cookie settings" link in the footer
+      try { localStorage.removeItem(CONSENT_KEY); } catch (e) {}
+      if (!document.querySelector(".cookie-banner")) {
+        if (hasTags) buildBanner();
+        else window.alert("This site currently sets no tracking cookies, so there is nothing to choose.");
+      }
+    }
+  };
+
+  var consent = readConsent();
+  if (hasTags) {
+    if (consent === "accepted") loadTags();
+    else if (consent !== "declined") buildBanner();
+  }
+
+  var cookieLink = document.querySelector("[data-cookie-settings]");
+  if (cookieLink) cookieLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    window.RYB_COOKIES.reset();
+  });
+
   /* ---------- Gallery ---------- */
   var categories = window.REGUR_GALLERY_CATEGORIES || [];
   var items = window.REGUR_GALLERY || [];

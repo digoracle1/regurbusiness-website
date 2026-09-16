@@ -45,6 +45,6 @@ window.REGUR_GALLERY = [
   { category: "tax",           src: null, alt: "", caption: "Upload slot — NRS Tax ID certificate" },
   { category: "trademark",     src: null, alt: "", caption: "Upload slot — Trademark certificate / acknowledgement" },
   { category: "trademark",     src: null, alt: "", caption: "Upload slot — Trademark certificate / acknowledgement" },
-  { category: "websites",      src: null, alt: "", caption: "Upload slot — Website screenshot (built by Digoracle)" },
-  { category: "websites",      src: null, alt: "", caption: "Upload slot — Website screenshot (built by Digoracle)" }
+  { category: "websites",      src: null, alt: "", caption: "Upload slot — Website screenshot" },
+  { category: "websites",      src: null, alt: "", caption: "Upload slot — Website screenshot" }
 ];

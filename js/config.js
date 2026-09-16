@@ -13,5 +13,21 @@ window.REGUR_CONFIG = {
 
   // Set to false once stats and testimonials are replaced with real,
   // verified content. While true, small "placeholder" labels are shown.
-  showPlaceholderLabels: true
+  showPlaceholderLabels: true,
+
+  /* ------------------------------------------------------------------
+     COOKIE BANNER & TRACKING
+     The site sets no tracking cookies by default. The banner only appears
+     if at least one ID below is filled in — so leave them empty until you
+     actually run ads or analytics, and there is nothing to consent to.
+
+     When an ID is set, the tag loads ONLY after the visitor clicks Accept.
+     Decline means nothing loads, and the choice is remembered in the
+     visitor's own browser (localStorage), not on a server.
+     ------------------------------------------------------------------ */
+  tracking: {
+    metaPixelId: "",     // Facebook/Instagram ads, e.g. "123456789012345"
+    tiktokPixelId: "",   // TikTok ads, e.g. "CABC123DEF456"
+    ga4Id: ""            // Google Analytics 4, e.g. "G-XXXXXXXXXX"
+  }
 };
