@@ -10,6 +10,9 @@ css/styles.css        All styling (mobile-first)
 js/config.js          WhatsApp number + placeholder-label toggle
 js/gallery-data.js    Proof-of-Work gallery items  ← update regularly
 js/main.js            WhatsApp links, nav, gallery filters, lightbox
+privacy.html          Privacy Policy (NDPA 2023)
+terms.html            Terms of Service
+refund-policy.html    Refund & Cancellation Policy
 images/logo-mark.png    Square RB mark (header/footer, app icon)
 images/logo-lockup.png  Full logo lockup, for dark backgrounds
 images/logo-full.png    Original supplied logo
@@ -38,6 +41,23 @@ Registration only: Business Name ₦35,000 · Company (Limited) ₦75,000
 Registration + compliance: Compliance Stack ₦120,000 · Full Company Launch ₦175,000–₦195,000
 Registration + website: Business Name + Website ₦150,000 · Company + Logo + Website ₦250,000
 Launch packages: Business Launch Package ₦499,000 · Ultimate Business Launch Package ₦900,000
+
+## Legal pages
+
+`terms.html`, `privacy.html` and `refund-policy.html` are linked from the footer of every page.
+They were drafted for a Nigerian business registration service and reflect how this business
+actually works (government fees non-refundable, outcomes decided by CAC/NRS/SCUML/the trademarks
+registry, WhatsApp as the main channel, branding and websites delivered by Digoracle Solutions).
+
+**They are not legal advice and have not been reviewed by a lawyer.** Before relying on them:
+
+1. Fill in every `[square-bracket]` placeholder: registered entity name, RC/BN number, registered
+   address and business email. Search the three files for `EDITABLE` and `[add`.
+2. Check the refund percentages, the 2-working-day acknowledgement and the 7–14 working day
+   refund window match what you can actually deliver.
+3. Have a Nigerian lawyer review all three, especially the liability, refund and governing-law
+   clauses.
+4. Update the "Last updated" date at the top of each page whenever you change them.
 
 ## Still to replace before you advertise
 
