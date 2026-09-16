@@ -10,6 +10,7 @@ css/styles.css        All styling (mobile-first)
 js/config.js          WhatsApp number + placeholder-label toggle
 js/gallery-data.js    Proof-of-Work gallery items  ← update regularly
 js/main.js            WhatsApp links, nav, gallery filters, lightbox
+about.html            About Us
 privacy.html          Privacy Policy (NDPA 2023)
 terms.html            Terms of Service
 refund-policy.html    Refund & Cancellation Policy
@@ -42,12 +43,29 @@ Registration + compliance: Compliance Stack ₦120,000 · Full Company Launch �
 Registration + website: Business Name + Website ₦150,000 · Company + Logo + Website ₦250,000
 Launch packages: Business Launch Package ₦499,000 · Ultimate Business Launch Package ₦900,000
 
+## Cookie banner & ad tracking
+
+The site sets **no tracking cookies** by default, and the banner stays hidden, because there is
+nothing to consent to. To run ads or analytics, put the ID into `tracking` in `js/config.js`:
+
+```js
+tracking: {
+  metaPixelId: "",     // Facebook / Instagram ads
+  tiktokPixelId: "",   // TikTok ads
+  ga4Id: ""            // Google Analytics 4
+}
+```
+
+As soon as one ID is filled in, the banner appears on every page, and the tag loads **only after
+the visitor clicks Accept**. Decline loads nothing. The choice is stored in the visitor's own
+browser and can be changed with the "Cookie settings" link in the footer.
+
 ## Legal pages
 
 `terms.html`, `privacy.html` and `refund-policy.html` are linked from the footer of every page.
 They were drafted for a Nigerian business registration service and reflect how this business
 actually works (government fees non-refundable, outcomes decided by CAC/NRS/SCUML/the trademarks
-registry, WhatsApp as the main channel, branding and websites delivered by Digoracle Solutions).
+registry, WhatsApp as the main channel, branding and websites delivered in-house).
 
 **They are not legal advice and have not been reviewed by a lawyer.** Before relying on them:
 
@@ -65,8 +83,10 @@ registry, WhatsApp as the main channel, branding and websites delivered by Digor
 2. **Testimonials**: sample copy in `index.html`. Replace with real, permission-cleared quotes.
 3. When 1 and 2 are done, set `showPlaceholderLabels: false` in `js/config.js` to hide the yellow "placeholder" tags.
 4. **Contact & socials**: business email and Facebook/Instagram/TikTok URLs (currently `#`) in the footer.
-5. **Domain**: if you connect a custom domain, update `canonical`, `og:url`, `og:image` and the JSON-LD `url` in the `<head>`.
-6. **FAQ timelines**: confirm the "How long does registration take?" answer matches your current experience.
+5. **About page**: `about.html` has bracketed placeholders for your founding year, base city and
+   team size. Replace them or delete those sentences.
+6. **Domain**: if you connect a custom domain, update `canonical`, `og:url`, `og:image` and the JSON-LD `url` in the `<head>`.
+7. **FAQ timelines**: confirm the "How long does registration take?" answer matches your current experience.
 
 WhatsApp is set to **+234 703 961 4337**. To change it, replace `2347039614337` in `index.html` and `js/config.js`, and the displayed number in the footer.
 
