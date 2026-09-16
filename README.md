@@ -1,6 +1,8 @@
-# Regurbusiness website
+# Register Your Business — website
 
-Static, single-page site (HTML + CSS + vanilla JS). No build step. Upload the whole folder to any static host (Netlify, Vercel, cPanel, GitHub Pages).
+Static, single-page site (HTML + CSS + vanilla JS). No build step. Upload the folder to any static host (GitHub Pages, Netlify, Vercel, cPanel).
+
+Live: https://digoracle1.github.io/regurbusiness-website/
 
 ```
 index.html            Page content + SEO meta
@@ -8,19 +10,45 @@ css/styles.css        All styling (mobile-first)
 js/config.js          WhatsApp number + placeholder-label toggle
 js/gallery-data.js    Proof-of-Work gallery items  ← update regularly
 js/main.js            WhatsApp links, nav, gallery filters, lightbox
-images/gallery/<category>/   Put certificate & website screenshots here
+images/logo-mark.png    Square RB mark (header/footer, app icon)
+images/logo-lockup.png  Full logo lockup, for dark backgrounds
+images/logo-full.png    Original supplied logo
+images/og-image.jpg     Social share preview (1200x630)
+images/gallery/<category>/   Certificate & website screenshots
 ```
 
-## Before going live: checklist
+## Brand
 
-1. **WhatsApp number**: find and replace `234XXXXXXXXXX` in `index.html` **and** `js/config.js` (digits only, e.g. `2348012345678`).
-   Also update the display number `+234 XXX XXX XXXX` in the footer.
-2. **Trust bar stats** (500+, 100%, 20+, Same-day): placeholders. Replace them with verified figures in `index.html`.
-3. **Testimonials**: sample copy. Replace them with real, permission-cleared quotes.
-4. When steps 2 and 3 are done, set `showPlaceholderLabels: false` in `js/config.js` to hide the yellow "placeholder" tags.
-5. **Contact & socials**: email address, Facebook/Instagram/TikTok URLs (currently `#`) in the footer.
-6. **Domain**: update `canonical`, `og:url`, `og:image` and JSON-LD `url` in the `<head>`. Add `images/og-image.jpg` (1200×630).
-7. **FAQ timelines**: confirm the "How long does registration take?" answer matches your current experience.
+Colours are taken from the Register Your Business identity:
+
+| Token | Hex | Use |
+|---|---|---|
+| `--brand` | `#009C94` | Teal accents, icons, highlights |
+| `--brand-btn` | `#007D76` | Button fill (readable with white text) |
+| `--brand-light` | `#4FD1C5` | Teal on dark backgrounds |
+| `--deep` | `#062E2C` | Dark sections and footer |
+| `--ink` | `#09161A` | Headings and body text |
+| `--bg` | `#F7FBF9` | Page background |
+
+Typeface: Plus Jakarta Sans.
+
+## Pricing shown on the site
+
+Registration only: Business Name ₦35,000 · Company (Limited) ₦75,000
+Registration + compliance: Compliance Stack ₦120,000 · Full Company Launch ₦175,000–₦195,000
+Registration + website: Business Name + Website ₦150,000 · Company + Logo + Website ₦250,000
+Launch packages: Business Launch Package ₦499,000 · Ultimate Business Launch Package ₦900,000
+
+## Still to replace before you advertise
+
+1. **Trust bar stats** (500+, 100%, 20+, Same-day): placeholders in `index.html`.
+2. **Testimonials**: sample copy in `index.html`. Replace with real, permission-cleared quotes.
+3. When 1 and 2 are done, set `showPlaceholderLabels: false` in `js/config.js` to hide the yellow "placeholder" tags.
+4. **Contact & socials**: business email and Facebook/Instagram/TikTok URLs (currently `#`) in the footer.
+5. **Domain**: if you connect a custom domain, update `canonical`, `og:url`, `og:image` and the JSON-LD `url` in the `<head>`.
+6. **FAQ timelines**: confirm the "How long does registration take?" answer matches your current experience.
+
+WhatsApp is set to **+234 703 961 4337**. To change it, replace `2347039614337` in `index.html` and `js/config.js`, and the displayed number in the footer.
 
 ## Adding gallery items
 
