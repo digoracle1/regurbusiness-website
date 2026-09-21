@@ -34,11 +34,28 @@ window.REGUR_GALLERY_CATEGORIES = [
 ];
 
 window.REGUR_GALLERY = [
+  // ---- REAL DELIVERED WORK (newest first) ----
+  // Client names, registration numbers, tax IDs, addresses, QR codes and the
+  // Registrar's signature are blurred. Swap in the un-blurred name version only
+  // where the client has given permission.
+  { category: "company", src: "images/gallery/company/company-cert-01.jpg",
+    alt: "CAC Certificate of Incorporation for a private company limited by shares, issued July 2026, client details blurred",
+    caption: "Private company limited by shares · Jul 2026" },
+  { category: "company", src: "images/gallery/company/company-cert-02.jpg",
+    alt: "CAC Certificate of Incorporation for a private company limited by shares, issued January 2026, client details blurred",
+    caption: "Private company limited by shares · Jan 2026" },
+  { category: "company", src: "images/gallery/company/company-cert-03.jpg",
+    alt: "CAC Certificate of Incorporation for a private company limited by shares, issued October 2025, client details blurred",
+    caption: "Private company limited by shares · Oct 2025" },
+  { category: "company", src: "images/gallery/company/company-cert-04.jpg",
+    alt: "CAC Certificate of Incorporation for a private company limited by shares, issued November 2023, client details blurred",
+    caption: "Private company limited by shares · Nov 2023" },
+  { category: "business-name", src: "images/gallery/business-name/business-name-cert-01.jpg",
+    alt: "CAC Certificate of Registration for a business name in the estate agency sector, issued March 2022, client details blurred",
+    caption: "Business name — estate agency · Mar 2022" },
+
   // ---- PLACEHOLDER UPLOAD SLOTS: replace with real items ----
   { category: "business-name", src: null, alt: "", caption: "Upload slot — Business Name certificate" },
-  { category: "business-name", src: null, alt: "", caption: "Upload slot — Business Name certificate" },
-  { category: "company",       src: null, alt: "", caption: "Upload slot — CAC Certificate of Incorporation" },
-  { category: "company",       src: null, alt: "", caption: "Upload slot — CAC Certificate of Incorporation" },
   { category: "scuml",         src: null, alt: "", caption: "Upload slot — SCUML registration certificate" },
   { category: "scuml",         src: null, alt: "", caption: "Upload slot — SCUML registration certificate" },
   { category: "tax",           src: null, alt: "", caption: "Upload slot — NRS Tax ID certificate" },
