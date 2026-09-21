@@ -278,7 +278,7 @@ button { font: inherit; }
 .g-item__frame { display: block; position: relative; aspect-ratio: 3 / 4; background: var(--navy-50); overflow: hidden; }
 .g-item--websites .g-item__frame { aspect-ratio: 4 / 3; }
 @media (min-width: 680px) { .g-item__frame, .g-item--websites .g-item__frame { aspect-ratio: 4 / 5; } }
-.g-item__frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .35s; }
+.g-item__frame img { width: 100%; height: 100%; object-fit: contain; object-position: center; background: #fff; padding: 6px; transition: transform .35s; }
 .g-item__btn:hover img { transform: scale(1.04); }
 .g-item__zoom { position: absolute; right: 8px; bottom: 8px; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: rgba(13,27,56,.78); color: #fff; opacity: 0; transition: opacity .2s; }
 .g-item__btn:hover .g-item__zoom, .g-item__btn:focus-visible .g-item__zoom { opacity: 1; }
